@@ -12,11 +12,14 @@ function Login(){
       <RootStackScreen/>
     )
   }
+
+
   
 const HomeStackScreen = () => (
     <HomeStack.Navigator headerMode='none'>
         <HomeStack.Screen name="Login" component={Login}  />
         <HomeStack.Screen name="HomeScreen" component={HomeTabScreen} />
+        
     </HomeStack.Navigator>
 );
 

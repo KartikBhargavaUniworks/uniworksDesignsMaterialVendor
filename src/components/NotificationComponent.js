@@ -1,37 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import AccordionContentDesignNotification from './AcordionContentDesignNotification';
 
-const NotificationComponent = ({ bookingId, Area, Address , Amount}) => {
-   
-    let address = Address.substring(0,12)+"..."
-    let amount = "₹ "  + Amount
+const NotificationComponent = ({ NoOfItems, Amount }) => {
+
+    const [data, setData] = useState({
+        show: false
+    })
+
+
+    const handleShowContent = () => {
+        setData(
+            {
+                show: !data.show
+            }
+        )
+    }
+    let date = '20/02/2020'
+    let amount = "₹ " + Amount
     return (
-        <View style={styles.mainContainer} >
-            <View style={styles.contentBox} >
-                <Text style={{ fontSize: 18 }} >Booking ID :</Text>
-                <Text style={{ marginStart: '2%', fontSize: 18 }} >{bookingId}</Text>
+        <View style={{ flex: 1 }} >
+            <View style={styles.mainContainer} >
+                <TouchableOpacity onPress={() => handleShowContent()} >
+                    <View style={styles.contentBox} >
+                        <Text style={{ color: '#353535', fontWeight: 'bold', fontSize: 20 }} >{NoOfItems + '  Items'}</Text>
+                        <View style={styles.filler} />
+                        <Text style={{ color: '#353535', fontSize: 20, alignSelf: 'center' }} >{amount}</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
-            <View style={styles.contentBox} >
-                <Text style={{ fontSize: 18, fontWeight: 'bold' }} >{Area}</Text>
-            </View>
-            <View style={styles.contentBox} >
-                <Text style={{ fontSize: 18, color: '#353535', maxWidth: '50%' }} > {address}</Text>
-                <View style={styles.filler} />
-                <Text style={{ fontSize: 20, marginEnd: '5%', color: '#353535' }} >{amount}</Text>
+            <View>
+                {
+                    data.show ?
+                        <AccordionContentDesignNotification Date={date} />
+                        :
+                        null
+                }
             </View>
         </View>
+
     )
 }
 
 const styles = StyleSheet.create({
     mainContainer: {
         marginVertical: '4%',
-        backgroundColor: '#e3e4e6',
+        backgroundColor: '#ffffff',
         borderRadius: 15,
         marginHorizontal: '10%',
         flex: 1,
-        maxHeight: '20%',
-        marginBottom:'3%'
     },
     contentBox: {
         marginStart: '10%',

@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import WalletScreen from '../screens/WalletScreen';
 import NotificationsScreen from '../screens/NotificationsScreen';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import InventoryScreen from '../screens/InventoryScreen';
 
 const Tab = createBottomTabNavigator();
 

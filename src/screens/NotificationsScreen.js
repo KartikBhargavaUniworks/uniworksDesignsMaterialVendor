@@ -7,59 +7,54 @@ import Feather from 'react-native-vector-icons/Feather'
 
 const NotificationsScreen = () =>{
     let Date = '23/06/2020'
-   
+   let value=8
     return (
         <ScrollView>
             <View style={{ backgroundColor: '#ffffff', flex: 1 }} >
                <Text style= {{ alignSelf:'center', marginTop:'10%', color:'#353535', fontSize:24, fontWeight:'bold', marginBottom:'5%' }} >Notifications</Text>
-                <View style = {styles.rect3} >
-                    <TextInput 
-                    placeholder='Search'
-                    style = {styles.textInputPhone}
-                    />
-                    <View style = {{alignSelf:'center', marginEnd:'2%'}}  >
-                    <TouchableOpacity  >
-                        <Feather name ='search' size={24} />
-                    </TouchableOpacity>
-                    </View>
-                </View>
+               
                 <View style ={{marginTop:'5%', marginHorizontal:'10%'}}>
                     <Text style = {{ fontSize:18, color:'#353535' }} >{Date}</Text>
                 </View>
                 <NotificationComponent
-                    bookingId='UWHYD00001043'
-                    Area='987 Sqft'
-                    Address="I live in Gorakhpur"
-                    Amount='24,500'
+                  NoOfItems={value.toString()}
+                  Amount='24,500'
                 />
                 <NotificationComponent
-                    bookingId='UWHYD00001043'
-                    Area='624 Sqft'
-                    Address="Betia Raj House, Betia Hata"
-                    Amount='48,00'
+                    NoOfItems={value.toString()}
+                   Amount='24,500'
                 />
                 <NotificationComponent
-                    bookingId='UWHYD00001043'
-                    Area='652 Sqft'
-                    Address="Betia Raj House, Betia Hata"
-                    Amount='24,500'
+                    NoOfItems={value.toString()}
+                   Amount='24,500'
                 />
-                <View style ={{marginHorizontal:'10%'}}>
+               
+                <View style ={{marginHorizontal:'10%', marginTop:'10%'}}>
                     <Text style = {{ fontSize:18, color:'#353535' }} >26/09/2020</Text>
                 </View>
+               
                 <NotificationComponent
-                    bookingId='UWHYD00001043'
-                    Area='987 Sqft'
-                    Address="I live in Gorakhpur"
+                      NoOfItems={value.toString()}
                     Amount='24,500'
                 />
                 <NotificationComponent
-                    bookingId='UWHYD00001043'
-                    Area='654 Sqft'
-                    Address="I live in Gorakhpur"
+                   NoOfItems={8}
                     Amount='24,500'
                 />
-            </View>
+                <NotificationComponent
+                   NoOfItems={10}
+                    Amount='24,500'
+                />
+                <NotificationComponent
+                   NoOfItems={15}
+                    Amount='24,500'
+                />
+                <NotificationComponent
+                   NoOfItems={6}
+                    Amount='24,500'
+                />
+                </View>
+            
         </ScrollView>
     )
 }
